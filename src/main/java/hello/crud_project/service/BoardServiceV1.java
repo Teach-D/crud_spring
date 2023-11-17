@@ -17,6 +17,12 @@ public class BoardServiceV1 {
         return boardRepository.create(board);
     }
 
+    public BoardDto findById(Long id) {
+        return boardRepository.findById(id);
+    }
+
+
+/*
     public BoardDto read(Long id) {
         return boardRepository.read(id);
     }
@@ -30,13 +36,13 @@ public class BoardServiceV1 {
         boardRepository.delete(id);
     }
 
-    public BoardDto findById(Long id) {
-        return boardRepository.findById(id);
-    }
+
+
 
     public List<BoardDto> findAll() {
         return boardRepository.findAll();
     }
 
+*/
 
 }

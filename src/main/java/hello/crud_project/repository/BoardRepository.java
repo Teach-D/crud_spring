@@ -10,13 +10,17 @@ public interface BoardRepository {
 
     BoardDto create(BoardDto board);
 
-    BoardDto read(Long id);
+    BoardDto findById(Long id);
+
+/*    BoardDto read(Long id);
 
     void update(Long id, BoardDto boardDto);
 
     void delete(Long id);
 
-    BoardDto findById(Long id);
+
 
     List<BoardDto> findAll();
+
+    */
 }

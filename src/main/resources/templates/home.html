@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<!--<div th:each="boardlist : ${boardLists}">
+
+    <form action="/board/update" method="post">
+        <span th:text="${boardlist.getId()}"></span>
+        <span th:text="${boardlist.getBoardTitle()}"></span>
+        <input type="submit">
+    </form>
+</div>-->
+
+<span th:text="${byId.getBoardId()}"> : </span>
+<span th:text="${byId.getBoardTitle()}"> : </span>
+<span th:text="${byId.getBoardContent()}"></span>
+<input th:onclick="|location.href='@{/board/update(id=${byId.getBoardId()}'|" type="submit">제출</input>
+
+</body>
+</html>

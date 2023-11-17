@@ -19,12 +19,14 @@ public class BoardController {
 
     private final BoardServiceV1 serviceV1;
 
+
     @GetMapping("/home")
     public String home(Model model) {
-        List<BoardDto> boardList = serviceV1.findAll();
-        model.addAttribute("boardList", boardList);
+        BoardDto byId = serviceV1.findById(2L);
+        model.addAttribute("byId", byId);
         return "home";
     }
+
 
     @GetMapping("/create")
     public String create() {
@@ -33,11 +35,13 @@ public class BoardController {
 
     @PostMapping("/create")
     public String created(BoardDto boardDto) {
+        BoardDto.id++;
+        boardDto.setBoardId(BoardDto.id);
         serviceV1.create(boardDto);
-        return "home";
+        return "a";
     }
 
-    @PostMapping("/update")
+/*    @PostMapping("/update")
     public String update(Model model, Long id) {
         BoardDto byId = serviceV1.findById(id);
         model.addAttribute("byId", byId);
@@ -48,5 +52,5 @@ public class BoardController {
     public String updated(BoardDto boardDto) {
         serviceV1.update(boardDto.getId(), boardDto);
         return "redirect:/home";
-    }
+    }*/
 }
