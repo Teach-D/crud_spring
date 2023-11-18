@@ -70,6 +70,27 @@ public class BoardRepositoryV1 implements BoardRepository{
         }
     }
 
+    @Override
+    public void update(Long id, BoardDto boardDto) {
+        String sql = "update board set board_title=?, board_content=? where board_id=?";
+
+        Connection con = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            con = getConnection();
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, boardDto.getBoardTitle());
+            pstmt.setString(2, boardDto.getBoardContent());
+            pstmt.setLong(3, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            close(con ,pstmt, null);
+        }
+    }
+
 
 
 

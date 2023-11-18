@@ -12,9 +12,11 @@ public interface BoardRepository {
 
     BoardDto findById(Long id);
 
+    void update(Long id, BoardDto boardDto);
+
 /*    BoardDto read(Long id);
 
-    void update(Long id, BoardDto boardDto);
+
 
     void delete(Long id);
 

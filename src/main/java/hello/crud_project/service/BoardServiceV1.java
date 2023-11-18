@@ -21,15 +21,15 @@ public class BoardServiceV1 {
         return boardRepository.findById(id);
     }
 
-
+    public void update(Long id, BoardDto boardDto) {
+        boardRepository.update(id, boardDto);
+    }
 /*
     public BoardDto read(Long id) {
         return boardRepository.read(id);
     }
 
-    public void update(Long id, BoardDto boardDto) {
-        boardRepository.update(id, boardDto);
-    }
+
 
 
     public void delete(Long id) {

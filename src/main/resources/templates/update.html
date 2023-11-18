@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -9,15 +10,12 @@
     <title>Document</title>
 </head>
 <body>
-<!--<div th:each="boardlist : ${boardLists}">
+<form action="/board/updated" method="post">
+    <input name="boardId" th:value="${byId.getBoardId()}">
+    <input type="text" name="boardTitle" th:value="${byId.getBoardTitle()}">
+    <input  type="text" name="boardContent" th:value="${byId.getBoardContent()}">
+    <input type="submit">
 
-    <form action="/board/update" method="post">
-        <span th:text="${boardlist.getId()}"></span>
-        <span th:text="${boardlist.getBoardTitle()}"></span>
-        <input type="submit">
-    </form>
-</div>-->
-<a th:href="@{update(id=${byId.getBoardId()})}">a</a>
-
+</form>
 </body>
 </html>
