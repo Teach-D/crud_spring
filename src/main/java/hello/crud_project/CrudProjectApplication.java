@@ -1,12 +1,12 @@
 package hello.crud_project;
 
-import hello.crud_project.Jdbc.BoardConfig;
+import hello.crud_project.db.Jdbc.BoardConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
 
 @Import(BoardConfig.class)
-@SpringBootApplication(scanBasePackages = "hello.crud_project.Jdbc")
+@SpringBootApplication(scanBasePackages = "hello.crud_project.db.Jdbc")
 public class CrudProjectApplication {
 
 	public static void main(String[] args) {

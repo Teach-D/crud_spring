@@ -1,10 +1,9 @@
-package hello.crud_project.repository;
+package hello.crud_project.nodb.repository;
 
-import hello.crud_project.Dto.BoardDto;
-import hello.crud_project.connection.DBConnectionUtil;
+import hello.crud_project.nodb.Dto.BoardDto;
+import hello.crud_project.nodb.connection.DBConnectionUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -12,7 +11,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.NoSuchElementException;
 
 @Repository

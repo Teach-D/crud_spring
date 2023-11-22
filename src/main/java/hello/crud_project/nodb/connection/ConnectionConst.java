@@ -1,4 +1,4 @@
-package hello.crud_project.connection;
+package hello.crud_project.nodb.connection;
 
 public abstract class  ConnectionConst {
     public static final String URL = "jdbc:h2:tcp://localhost/~/test1";

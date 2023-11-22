@@ -1,5 +1,6 @@
-package hello.crud_project.Jdbc;
+package hello.crud_project.db.Jdbc;
 
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,11 +18,12 @@ public class BoardController {
 
     @GetMapping
     public String items(BoardItem boardItem, Model model) {
-        List<BoardItem> all = boardService.findAll();
+        List<BoardItem> all = boardService.findAll(boardItem);
         model.addAttribute("items", all);
         return "board/items";
     }
 
+    @NonNull
     @GetMapping("/{itemId}")
     public String item(@PathVariable Long itemId, Model model) {
         BoardItem boardItem = boardService.findById(itemId).get();

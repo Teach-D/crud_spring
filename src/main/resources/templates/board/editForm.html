@@ -10,8 +10,8 @@
 </head>
 <body>
     <form th:action="@{/items/{pathParam}/edit(pathParam=${item.getId()})}" method="post">
-        <input type="text" name="board_title" th:value="${item.getBoard_title()}">
-        <input type="text" name="board_content" th:value="${item.getBoard_content()}">
+        <input type="text" name="boardTitle" th:value="${item.getBoardTitle()}">
+        <input type="text" name="boardContent" th:value="${item.getBoardContent()}">
         <input type="submit">
     </form>
 </body>

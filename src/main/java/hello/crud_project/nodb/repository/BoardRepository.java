@@ -1,9 +1,7 @@
-package hello.crud_project.repository;
+package hello.crud_project.nodb.repository;
 
-import hello.crud_project.Dto.BoardDto;
+import hello.crud_project.nodb.Dto.BoardDto;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 @Repository
 public interface BoardRepository {

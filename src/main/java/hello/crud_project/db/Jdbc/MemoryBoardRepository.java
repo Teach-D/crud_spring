@@ -1,4 +1,4 @@
-package hello.crud_project.Jdbc;
+package hello.crud_project.db.Jdbc;
 
 import org.springframework.stereotype.Repository;
 
@@ -24,8 +24,8 @@ public class MemoryBoardRepository implements  BoardRepository{
     @Override
     public void update(Long id, BoardItem boardItem) {
         BoardItem findItem = findById(id).orElseThrow();
-        findItem.setBoard_title(boardItem.getBoard_title());
-        findItem.setBoard_content(boardItem.getBoard_content());
+        findItem.setBoardTitle(boardItem.getBoardTitle());
+        findItem.setBoardTitle(boardItem.getBoardContent());
     }
 
     @Override
@@ -34,7 +34,7 @@ public class MemoryBoardRepository implements  BoardRepository{
     }
 
     @Override
-    public List<BoardItem> findAll() {
+    public List<BoardItem> findAll(BoardItem boardItem) {
         return store.values().stream().collect(Collectors.toList());
     }
 }

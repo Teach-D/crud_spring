@@ -1,4 +1,4 @@
-package hello.crud_project.Jdbc;
+package hello.crud_project.db.Jdbc;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,5 +9,5 @@ public interface BoardRepository {
     void update(Long id, BoardItem boardItem);
     Optional<BoardItem> findById(Long id);
 
-    List<BoardItem> findAll();
+    List<BoardItem> findAll(BoardItem boardItem);
 }

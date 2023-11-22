@@ -1,4 +1,4 @@
-package hello.crud_project.Dto;
+package hello.crud_project.nodb.Dto;
 
 import lombok.Data;
 

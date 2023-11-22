@@ -1,11 +1,9 @@
-package hello.crud_project.service;
+package hello.crud_project.nodb.service;
 
-import hello.crud_project.Dto.BoardDto;
-import hello.crud_project.repository.BoardRepository;
+import hello.crud_project.nodb.Dto.BoardDto;
+import hello.crud_project.nodb.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor

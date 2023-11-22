@@ -1,4 +1,4 @@
-package hello.crud_project.Jdbc;
+package hello.crud_project.db.Jdbc;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -27,7 +27,7 @@ public class BoardServiceV1 implements BoardService{
     }
 
     @Override
-    public List<BoardItem> findAll() {
-        return boardRepository.findAll();
+    public List<BoardItem> findAll(BoardItem boardItem) {
+        return boardRepository.findAll(boardItem);
     }
 }
