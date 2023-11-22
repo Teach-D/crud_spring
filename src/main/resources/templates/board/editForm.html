@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -10,12 +9,10 @@
     <title>Document</title>
 </head>
 <body>
-
-<div th:each="item : ${boardList}">
-    <a th:href="@{/board/read(id=${item})}" th:text="${item}"></a>
-</div>
-
-<a th:href="@{/board/create}">create</a>
-
+    <form th:action="@{/items/{pathParam}/edit(pathParam=${item.getId()})}" method="post">
+        <input type="text" name="board_title" th:value="${item.getBoard_title()}">
+        <input type="text" name="board_content" th:value="${item.getBoard_content()}">
+        <input type="submit">
+    </form>
 </body>
 </html>

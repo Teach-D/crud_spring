@@ -1,8 +1,8 @@
+/*
 package hello.crud_project.controller;
 
 import hello.crud_project.Dto.BoardDto;
 import hello.crud_project.service.BoardServiceV1;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static hello.crud_project.Dto.BoardDto.*;
+
 @Slf4j
 @Controller
 @RequestMapping("/board")
@@ -19,12 +21,24 @@ import java.util.List;
 public class BoardController {
 
     private final BoardServiceV1 serviceV1;
+    private final List<Long> boardList = new ArrayList<>();
 
     @GetMapping("/home")
     public String home(Model model) {
-        BoardDto byId = serviceV1.findById(2L);
-        model.addAttribute("byId", byId);
+        for (Long i = 2L; i <= 4L; i++) {
+            boardList.add(i);
+        }
+
+        model.addAttribute("boardList", boardList);
         return "home";
+    }
+
+    @GetMapping("/read")
+    public String read(@RequestParam("id") String id, Model model) {
+        log.info(id);
+        BoardDto byId = serviceV1.findById(Long.valueOf(id));
+        model.addAttribute("byId", byId);
+        return "read";
     }
 
     @GetMapping("/create")
@@ -34,10 +48,10 @@ public class BoardController {
 
     @PostMapping("/create")
     public String created(BoardDto boardDto) {
-        BoardDto.id++;
-        boardDto.setBoardId(BoardDto.id);
+        id++;
+        boardDto.setBoardId(id);
         serviceV1.create(boardDto);
-        return "a";
+        return "redirect:/board/home";
     }
 
     @GetMapping("/update")
@@ -51,14 +65,17 @@ public class BoardController {
     @PostMapping("updated")
     public String updated(BoardDto boardDto) {
         serviceV1.update(boardDto.getBoardId(), boardDto);
-        return "a";
+        return "home";
     }
 
+*/
 /*
 
     @PostMapping("/updated")
     public String updated(BoardDto boardDto) {
         serviceV1.update(boardDto.getId(), boardDto);
         return "redirect:/home";
-    }*/
+    }*//*
+
 }
+*/

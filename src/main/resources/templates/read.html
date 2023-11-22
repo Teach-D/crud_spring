@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -10,12 +9,10 @@
     <title>Document</title>
 </head>
 <body>
-
-<div th:each="item : ${boardList}">
-    <a th:href="@{/board/read(id=${item})}" th:text="${item}"></a>
-</div>
-
-<a th:href="@{/board/create}">create</a>
+board_id : <span th:text="${byId.getBoardId()}"></span>
+board_title : <span th:text="${byId.getBoardTitle()}"></span>
+board_content : <span th:text="${byId.getBoardContent()}"></span>
+<a th:href="@{update(id=${byId.getBoardId()})}">수정</a>
 
 </body>
 </html>

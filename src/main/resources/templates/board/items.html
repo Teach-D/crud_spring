@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div th:each="item : ${items}">
+        board_id : <span th:text="${item.getId()}"></span>
+        board_title : <span th:text="${item.getBoard_title()}"></span>
+        board_title : <span th:text="${item.getBoard_content()}"></span>
+        <a th:href="@{/items/{pathParam}/edit(pathParam=${item.getId()})}">수정</a>
+    </div>
+    <a th:href="@{/items/add}">생성</a>
+</body>
+</html>
