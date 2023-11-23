@@ -1,5 +1,6 @@
-package hello.crud_project.db.Jdbc;
+package hello.crud_project.db.repository;
 
+import hello.crud_project.db.BoardItem;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
@@ -17,7 +18,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @Repository
-public class JdbcRepositoryV1 implements BoardRepository{
+public class JdbcRepositoryV1 implements BoardRepository {
 
     private final NamedParameterJdbcTemplate template;
 
@@ -66,10 +67,16 @@ public class JdbcRepositoryV1 implements BoardRepository{
     }
 
     @Override
-    public List<BoardItem> findAll(BoardItem boardItem) {
-        String sql = "select id, board_title, board_content from board2";
-        BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(boardItem);
-        return template.query(sql, param, itemRowMapper());
+    public List<BoardItem> findAll() {
+        /*String sql = "select id, board_title, board_content from board2";
+        //BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource();
+        return template.query(sql, param, itemRowMapper());*/
+        return null;
+    }
+
+    @Override
+    public void deleteById(Long id) {
+
     }
 
     private RowMapper<BoardItem> itemRowMapper() {

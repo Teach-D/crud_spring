@@ -1,5 +1,6 @@
-package hello.crud_project.db.Jdbc;
+package hello.crud_project.db.repository;
 
+import hello.crud_project.db.BoardItem;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
@@ -9,7 +10,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Repository
-public class MemoryBoardRepository implements  BoardRepository{
+public class MemoryBoardRepository implements BoardRepository {
 
     private static final Map<Long, BoardItem> store = new HashMap<>();
     private static long sequence = 0L;
@@ -34,7 +35,12 @@ public class MemoryBoardRepository implements  BoardRepository{
     }
 
     @Override
-    public List<BoardItem> findAll(BoardItem boardItem) {
+    public List<BoardItem> findAll() {
         return store.values().stream().collect(Collectors.toList());
+    }
+
+    @Override
+    public void deleteById(Long id) {
+
     }
 }

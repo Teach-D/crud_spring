@@ -15,6 +15,7 @@
         board_title : <span th:text="${item.getBoardTitle()}"></span>
         board_title : <span th:text="${item.getBoardContent()}"></span>
         <a th:href="@{/items/{pathParam}/edit(pathParam=${item.getId()})}">수정</a>
+        <a th:href="@{/items/{pathParam}/delete(pathParam=${item.getId()})}">삭제</a>
     </div>
     <a th:href="@{/items/add}">생성</a>
 </body>

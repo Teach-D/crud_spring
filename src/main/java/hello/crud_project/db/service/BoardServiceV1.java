@@ -1,5 +1,7 @@
-package hello.crud_project.db.Jdbc;
+package hello.crud_project.db.service;
 
+import hello.crud_project.db.BoardItem;
+import hello.crud_project.db.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -8,7 +10,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class BoardServiceV1 implements BoardService{
+public class BoardServiceV1 implements BoardService {
 
     private final BoardRepository boardRepository;
     @Override
@@ -27,7 +29,12 @@ public class BoardServiceV1 implements BoardService{
     }
 
     @Override
-    public List<BoardItem> findAll(BoardItem boardItem) {
-        return boardRepository.findAll(boardItem);
+    public List<BoardItem> findAll() {
+        return boardRepository.findAll();
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        boardRepository.deleteById(id);
     }
 }

@@ -1,13 +1,18 @@
-package hello.crud_project.db.Jdbc;
+package hello.crud_project.db;
 
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
+@Entity
 public class BoardItem {
 
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "board_title")
     private String boardTitle;
+    @Column(name = "board_content")
     private String boardContent;
 
     public BoardItem() {
