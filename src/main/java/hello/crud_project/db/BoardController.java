@@ -19,6 +19,7 @@ public class BoardController {
 
     @GetMapping
     public String items(BoardItem boardItem, Model model) {
+
         List<BoardItem> all = boardService.findAll();
         model.addAttribute("items", all);
         return "board/items";
